@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.147fee55.css",
+    "main.js": "/static/js/main.3e776eec.js",
+    "static/js/453.9384c6cb.chunk.js": "/static/js/453.9384c6cb.chunk.js",
+    "static/media/fort_portal.jpg": "/static/media/fort_portal.55c153ba0ba9b6c92225.jpg",
+    "static/media/ugandan-food-9.jpeg": "/static/media/ugandan-food-9.0c4f83f2d0d33b8f5e18.jpeg",
+    "static/media/kyaninga-lodge.jpeg": "/static/media/kyaninga-lodge.4b929f6a105e257a1a03.jpeg",
+    "static/media/bird.jpg": "/static/media/bird.ef32393c03ea714a6df8.jpg",
+    "static/media/ugandan-doctor.jpeg": "/static/media/ugandan-doctor.d03b708a4851b77d6837.jpeg",
+    "index.html": "/index.html",
+    "main.147fee55.css.map": "/static/css/main.147fee55.css.map",
+    "main.3e776eec.js.map": "/static/js/main.3e776eec.js.map",
+    "453.9384c6cb.chunk.js.map": "/static/js/453.9384c6cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.147fee55.css",
+    "static/js/main.3e776eec.js"
+  ]
+}
