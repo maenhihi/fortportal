@@ -27,7 +27,7 @@ function MapPage() {
   //fetching data
 
   const fetchData = (value) => {
-    fetch("http://localhost:8000/poi/").then((res) =>
+    fetch("https://jsonplaceholder.org/users").then((res) =>
       res.json().then((json) => {
         const filteredResults = json.filter((user) => {
           return (
