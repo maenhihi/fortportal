@@ -4,10 +4,13 @@ import Bird from "../assets/bird.jpg";
 import Doctor from "../assets/ugandan-doctor.jpeg";
 import Hotel from "../assets/kyaninga-lodge.jpeg"
 import Food from "../assets/ugandan-food-9.jpeg"
-import MapButton from "../Components/MapButton.js";
+import MapButton from "../Components/MapButton.jsx";
 import '../Styles/Features.css'
 
-export default function Features() {
+import { useNavigate } from "react-router-dom";
+
+export default function Features() {  
+
   return (
     <section id="features">
       <div className="container">
@@ -17,11 +20,13 @@ export default function Features() {
           </div>
 
           <div className="features__wrapper">
+
             <Feature
               feature_title="Accomodation"
               feature_paragraph="Fort Portal offers a range of hotels blending comfort, hospitality, and convenience, ensuring a memorable stay amidst stunning natural surroundings."
               feature_image_link={Hotel}
             />
+
 
             <Feature
               feature_title="Medical Facilities"
