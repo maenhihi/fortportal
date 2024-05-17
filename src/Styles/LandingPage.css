@@ -122,13 +122,14 @@ styling
 }
 
 /* large screen */
-@media only screen and (min-width: 1501px) {
+@media all and (min-width: 1501px) {
     .textbox1 {
         font-size: 100px;
         width: 33%;
         padding-left: 65px;
     }
 }
+
 
 /*
 
