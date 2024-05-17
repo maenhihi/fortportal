@@ -3,7 +3,7 @@ import React from "react";
 function Feature({ feature_image_link, feature_title, feature_paragraph }) {
   return (
     <div className="feature__container">
-      <a className="feature__anchor" href="https://www.google.com.au" target="_blank">
+      <a href="http://localhost:3000/MapPage">
         <div className="feature__img--wrapper">
           <img src={feature_image_link} alt="" className="feature__img" />
         </div>
