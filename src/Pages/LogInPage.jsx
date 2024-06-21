@@ -8,12 +8,24 @@ export const LogInPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const fetchLoginCredentials = async () => {
+  const fetchLoginCredentials = async (login_user, login_password) => {
     try {
-      const res = await fetch("http://localhost:8000/login");
+      const res = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ login_user, login_password }),
+      });
+
       if (!res.ok) {
-        throw new Error("Failed to fetch login credentials");
+        if (res.status === 404) {
+          throw new Error("Incorrect username or password");
+        } else {
+          throw new Error("Failed to fetch login credentials");
+        }
       }
+
       const data = await res.json();
       return data;
     } catch (error) {
@@ -22,29 +34,20 @@ export const LogInPage = () => {
     }
   };
 
-  const mockAuthentication = async () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        //issue here, idk what the backend data looks like
-        if (username === "fort-portal" && password === "123") {
-          resolve(true);
-          navigate("/ValidLogin");
-        } else {
-          reject(new Error("Invalid username or password"));
-          navigate("/InvalidLogIn");
-        }
-      }, 500);
-    });
-  };
- 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
+
     try {
-      await mockAuthentication();
+      const response = await fetchLoginCredentials(username, password);
+      if (response.message === "Login successful") {
+        navigate("/ValidLogin");
+      } else {
+        throw new Error("Invalid username or password");
+      }
     } catch (error) {
       setError(error.message);
+      navigate("/InvalidLogin");
     }
   };
 
@@ -68,7 +71,7 @@ export const LogInPage = () => {
             type="text"
             value={username}
             onChange={handleUsernameChange}
-            placeholder="Username"
+            placeholder="Email"
             className="login__input username__field"
           />
           <input
@@ -84,6 +87,7 @@ export const LogInPage = () => {
             </button>
           </div>
         </form>
+        {error && <p className="error">{error}</p>}
       </div>
     </section>
   );

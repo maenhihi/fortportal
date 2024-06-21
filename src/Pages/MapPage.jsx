@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaSearch, FaPhone, FaMapPin } from "react-icons/fa";
 import Stars from "../Components/Stars";
+import { backendData } from "../poi";
 import {
   MapContainer,
   TileLayer,
@@ -8,7 +9,7 @@ import {
   Popup,
   ZoomControl,
 } from "react-leaflet";
-import { Icon } from "leaflet"; // Import leaflet for custom icon
+import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../Styles/MapPage.css";
 
@@ -18,29 +19,35 @@ function MapPage() {
   const [input, setInput] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [markers, setMarkers] = useState([]);
 
   const customIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
     iconSize: [38, 38],
   });
 
-  //fetching data
-
+  // Fetching data
   const fetchData = (value) => {
-    fetch("https://jsonplaceholder.org/users").then((res) =>
-      res.json().then((json) => {
-        const filteredResults = json.filter((user) => {
-          return (
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(value.toLowerCase())
-          );
-        });
-        setResults(filteredResults);
-        setShowResults(true);
-      })
-    );
+    const filteredResults = backendData.filter((user) => {
+      return (
+        user &&
+        user.name &&
+        user.name.toLowerCase().includes(value.toLowerCase())
+      );
+    });
+    setResults(filteredResults);
+    setShowResults(true);
   };
+
+  useEffect(() => {
+    // Fetch all markers on initial load
+    setMarkers(
+      backendData.map((poi) => ({
+        coordinates: poi.coordinates,
+        name: poi.name,
+      }))
+    );
+  }, []);
 
   const handleChange = (value) => {
     setInput(value);
@@ -52,8 +59,7 @@ function MapPage() {
     setShowResults(false);
   };
 
-  //toggling searchbar modal
-
+  // Toggling search bar modal
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
     const sidebar = document.querySelector(".sidebar");
@@ -63,13 +69,8 @@ function MapPage() {
     }
   };
 
-
-
-  //logic to output the searchbar, map, and POI pop-ups
   return (
     <>
-     
-
       <div className="search__bar--wrapper">
         <div className="search__bar--container">
           <div className="input__wrapper">
@@ -91,11 +92,11 @@ function MapPage() {
                     <div
                       className={`search__result ${
                         selectedResultDetails &&
-                        selectedResultDetails._id === result._id
+                        selectedResultDetails._id.$oid === result._id.$oid
                           ? "selected"
                           : ""
                       }`}
-                      key={result._id}
+                      key={result._id.$oid}
                       onClick={() => handleResultClick(result)}
                     >
                       {result.name} [{result.category}]
@@ -151,20 +152,24 @@ function MapPage() {
         zoomControl={false}
       >
         <TileLayer
-          attribution='&copy; <a href="
-            https://www.openstreetmap.org/copyright
-            ">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position="topright" className="zoom-control-container" />
 
-        {selectedResultDetails && (
+        {selectedResultDetails ? (
           <Marker
             position={selectedResultDetails.coordinates}
             icon={customIcon}
           >
             <Popup>{selectedResultDetails.name}</Popup>
           </Marker>
+        ) : (
+          markers.map((marker, index) => (
+            <Marker key={index} position={marker.coordinates} icon={customIcon}>
+              <Popup>{marker.name}</Popup>
+            </Marker>
+          ))
         )}
       </MapContainer>
     </>

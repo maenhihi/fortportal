@@ -92,7 +92,11 @@ FEATURES PAGE STYLING
   cursor: pointer;
 }
 
-.feature__anchor:hover {
+.feature__anchor,
+.feature__img--wrapper,
+.feature__para--wrapper,
+.feature__title--wrapper
+:hover {
   cursor: pointer;
 }
 

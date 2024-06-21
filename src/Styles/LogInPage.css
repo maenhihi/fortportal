@@ -44,6 +44,11 @@
     align-items: center;
 }
 
+::placeholder
+{
+    color: #b9bcc1;
+}
+
 .login__input {
     background-color: #ffff;
     margin-bottom: 24px;
