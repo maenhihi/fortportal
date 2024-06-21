@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Brush-script;
+}
+
+#LogInPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 40px ;
+}
+
+.login__modal--wrapper {
+    width: 32%;
+    background: rgb(219, 219, 196);
+    height: 480px;
+    border-radius: 16px;
+}
+
+.login__header--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+    margin-bottom: 100px;
+}
+
+.login__header {
+    font-family: arial;
+    color: #5b6476;
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+.input__text--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+::placeholder
+{
+    color: #b9bcc1;
+}
+
+.login__input {
+    background-color: #ffff;
+    margin-bottom: 24px;
+    width: 72%;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-family: arial;
+    font-size: 24px;
+}
+
+.login__button--wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    
+    /* width: 40%; */
+    height: 60px;
+    transition: 100ms ease-in;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 24px;
+    padding: 0.5em;
+    border-radius: 64px;
+    background-color: rgba(4, 122, 58, 0.438);
+    margin-top: 8px;
+}
+
+.login__button:hover {
+    background-color: rgba(4, 122, 57, 0.977);
+}
+
+
+@media all and (max-width:900px) {
+    .login__header{
+       font-size:larger;
+    }
+    .login__input{
+        font-size: larger;
+    }
+    .login__modal--wrapper{
+        min-width: 60%;
+    }
+}
+
+@media all and(max-width: 500px){
+    .login__modal--wrapper{
+        min-width: 80%;
+    }
+}

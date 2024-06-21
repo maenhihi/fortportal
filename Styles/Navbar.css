@@ -1,0 +1,90 @@
+.Navbar {
+    display: flex;
+    padding: 1%;
+    gap: 10px;
+    justify-content: right;
+}
+
+.container{
+    position: relative;
+    padding: 16px;
+    max-width: 100%;
+}
+
+.btn {
+    position: relative;
+    padding: 16px;
+    width: 100px;
+    max-width: 100%;
+    transition: 2s all;
+    letter-spacing: 0.15em;
+  }
+  
+  .btn-outline-primary {
+    border: 1.5px solid white;
+    background: transparent;
+    transition-duration: .5s;
+    transform-style: ease-in-out;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: rgb(49,143,154);
+    cursor: pointer;
+    border: 1.5px solid rgb(49,143,154);
+
+  }
+  
+.navbar__features--button{
+  cursor: pointer;
+}
+
+  .btn-rounded {
+    border-radius: 18px;
+  }
+  
+  .btn-text {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: arial;
+    color: white;
+  }
+
+  nav-list { 
+    padding: 0; 
+    list-style: none; 
+    display: table;
+
+    text-align: center;
+  }
+  list-display { 
+    display: table-cell; 
+    position: relative; 
+  }
+  list-text {
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+    font-size: 16px;
+  }
+  list-text:hover { 
+    cursor: pointer;
+  }
+  list-text:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: rgb(49,143,154);
+    transition: width 0.7s ease 0s, left 0.7s ease 0s;
+    width: 0;
+  }
+  list-text:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }

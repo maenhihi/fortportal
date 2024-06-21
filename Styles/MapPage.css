@@ -1,0 +1,177 @@
+body {
+  background-color: rgb(96, 187, 162)
+}
+
+/* Location of zoom button interface*/
+
+
+/* height of the container */
+.leaflet-container {
+  position: fixed;
+  width: 100%;
+  height: calc(100% -16px);
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+
+/* 
+
+SEARCH BAR STYLING
+
+*/
+
+.arrow-btn{
+border: none;
+background-color: #fff;
+}
+
+.sidebar-content{
+  width: 100%;
+}
+
+.arrow-btn:hover{
+  color: red;
+}
+
+.search__bar--wrapper {
+  width: 80%;
+}
+
+.search__bar--container {
+  padding-top: 8px;
+  padding-left: 8px;
+  width: 32%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  position: absolute;
+}
+
+.input__wrapper {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 12px;
+  height: 3rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  width: 100%;
+  margin-left: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#search-icon {
+  color: rgb(49, 143, 154);
+}
+
+/*
+
+SEARCH OUTPUT
+
+*/
+
+.results__list {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 12px;
+  margin-top: 4px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.search__result {
+  padding: 10px 20px;
+}
+
+.search__result:hover {
+  background-color: #efefef;
+}
+
+
+/*
+
+Map Pop-up
+
+*/
+
+.map__image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 12px;
+  width: 100%;
+  height: 40%;
+
+}
+
+.--header{
+  font-size:24px ;
+}
+
+.--price{
+  font-size: 20px;
+}
+
+.--category{
+  color: rgb(49, 143, 154);
+}
+
+.side__pop-up--wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #dddbdb;
+  height: 80vh;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.--bold {
+  font-weight: bold;
+}
+
+.--price{
+  color: rgb(49, 143, 154);
+}
+
+.side__pop{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.bottom--margin{
+  margin-bottom: 12px;
+}
+
+.--description{
+  font-size: 18px;
+}
+
+.stars--wrapper{
+  padding-bottom: 4px;
+}
+
+
+
+@media all and (max-width: 480px) {
+ input{
+  font-size: large;
+ }
+}
